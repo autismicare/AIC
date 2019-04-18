@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Autism I Care </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+
+</head>
+
+
+<body>
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="index.html" class="active">AutismICare</a>
+  <div id="myLinks">
+    <a href="phpinfo.php">Facts about Autism</a></li>
+    <a href="event.html">Upcoming Autism Events</a></li>
+    <a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up /
+    <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="img-responsive" src="assets/img/a1.jpg">
+                <div class="container">
+                    <div class="carousel-caption" align="left">
+                        <h1>What is ASD?</h1>
+                        <p>Autism spectrum disorder (ASD) is <q>a set of neurodevelopmental disorders characterized by a lack of social interaction, verbal and nonverbal communication in the first 3 years of life. The distinctive social behaviors include an avoidance of eye contact, problems with emotional control or understanding the emotions of others, and a markedly restricted range of activities and interests</q> - Park et. al.</p>
+                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4766109/" class="read-more btn btn-primary" role="button">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="img-responsive" src="assets/img/a2.jpg" alt="">
+                <div class="container">
+                    <div class="carousel-caption" align="left">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="img-responsive" src="assets/img/a3.jpg" alt="">
+                <div class="container">
+                    <div class="carousel-caption" align="left">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Facts about Autism</h3>
+      <p>To be discovered...</p>
+    </div>
+    <div class="col-sm-4 scroll-col h-100">
+      <h3>Upcoming Autism events</h3>
+          <div id="events" style="height:250px"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <h3>Registered Providers in Victoria</h3>
+    <p>Retrieving data from <a href="https://www.ndis.gov.au/participants/working-providers/find-registered-provider">NDIS</a>, there are over 1,700 registerd service providers involves in <code class="code">Assist-Travel/Transport</code>
+      <code class="code">Assist Prod-Pers Care/Safety</code>
+      <code class="code">Assistive Equip-Recreation</code>
+      <code class="code">Community Nursing Care</code>
+      <code class="code">Behaviour Support</code>
+      <code class="code">Early Childhood Supports</code>
+      <code class="code">Specialised Disability Accommodation</code>
+      <code class="code">Assist Personal Activities</code>
+      <code class="code">Assist-Life Stage, Transition</code>
+      <code class="code">Daily Tasks/Shared Living</code>
+      <code class="code">Group/Centre Activities</code>
+      <code class="code">Participate Community</code>
+      <code class="code">Support Coordination</code>
+      <code class="code">Development-Life Skills</code>
+    <div class='tableauPlaceholder' id='viz1555134710541' style='position: relative'><noscript>
+      <a href='#'>
+      <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;VI&#47;VIC_HealthcareProvider&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript>
+      <object class='tableauViz'  style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+      <param name='embed_code_version' value='3' /> 
+      <param name='site_root' value='' />
+      <param name='name' value='VIC_HealthcareProvider&#47;Dashboard' />
+      <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+      <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;VI&#47;VIC_HealthcareProvider&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' />
+      <param name='display_static_image' value='yes' />
+      <param name='display_spinner' value='yes' />
+      <param name='display_overlay' value='yes' />
+      <param name='display_count' value='yes' /></object>
+    </div>                
+    <script type='text/javascript'>                    
+      var divElement = document.getElementById('viz1555134710541');                    
+      var vizElement = divElement.getElementsByTagName('object')[0];                    
+      if ( divElement.offsetWidth > 800 ) { 
+        vizElement.style.minWidth='1080px';
+        vizElement.style.maxWidth='100%';
+        vizElement.style.minHeight='587px';
+        vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} 
+      else if ( divElement.offsetWidth > 500 ) { 
+        vizElement.style.minWidth='500px';
+        vizElement.style.maxWidth='100%';
+        vizElement.style.minHeight='587px';
+        vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} 
+      else { 
+        vizElement.style.minWidth='420px';
+        vizElement.style.maxWidth='100%';
+        vizElement.style.minHeight='587px';
+        vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}
+      var scriptElement = document.createElement('script');                    
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+</div>
+
+</body>
+</html>
