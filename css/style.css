@@ -1,42 +1,19 @@
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-}
+body {margin:0;}
 
-.topnav #myLinks {
-  display: none;
+/*carousel style*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
 }
+/*carousel style*/
 
-.topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-
-.topnav a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.active {
-  background-color: rgb(76, 175, 80,0.8);
-  color: white;
-}
-.code {
+/*bg color of text*/
+.highlight {
   background: linear-gradient(to right,#fce4ed,#ffe8cc);
 }
+/*bg color of text*/
 
+/*scrollable text in container*/
 .container,
 .row {
   overflow: hidden;
@@ -46,3 +23,4 @@
   overflow: auto;
   /*height: 100%;  used h-100 class instead*/
 }
+/*scrollable text in container*/

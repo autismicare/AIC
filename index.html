@@ -4,71 +4,86 @@
   <title>Autism I Care </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
-
 </head>
-
 
 <body>
 
-<!-- Top Navigation Menu -->
-<div class="topnav">
-  <a href="index.html" class="active">AutismICare</a>
-  <div id="myLinks">
-    <a href="phpinfo.php">Facts about Autism</a></li>
-    <a href="event.html">Upcoming Autism Events</a></li>
-    <a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up /
-    <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<!-- Start Top Nav Bar -->
+  <nav class="navbar navbar-expand-md bg-success navbar-dark fixed-top">
+    <a class="navbar-brand" href="index.html">AutismICare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="fact.html"><i class="fa fa-bullhorn"></i>   Facts about Autism  </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="event.html"><i class="fa fa-calendar"></i>   Upcoming Autism Events  </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.html"><i class="fa fa-sign-in"></i>   Signup / Sign-in  </a>
+        </li>    
+      </ul>
+    </div>  
+  </nav>
+<!-- End Top Nav Bar -->
+
+<!-- Start Carousel -->
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel" data-slide-to="2"></li>
+    </ul>
+    
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/a1.jpg" width="1100" height="500">
+          <div class="carousel-caption">
+              <h3>What we do?</h3>
+              <p>We provide support for parents</p>
+          </div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/a2.jpg" width="1100" height="500">
+          <div class="carousel-caption">
+              <h3>What we provide?</h3>
+              <p>Short facts. Upcoming Autism events.</p>
+          </div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/a4.jpg" width="1100" height="500">
+          <div class="carousel-caption">
+              <h3>What else we provide?</h3>
+              <p>Online diary to keep track of your children's mood & behaviour & factors.</p>
+          </div>
+      </div>
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#carousel" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
   </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+<!-- End Carousel -->
 
-<!-- Carousel -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img class="img-responsive" src="assets/img/a1.jpg">
-                <div class="container">
-                    <div class="carousel-caption" align="left">
-                        <h1>What is ASD?</h1>
-                        <p>Autism spectrum disorder (ASD) is <q>a set of neurodevelopmental disorders characterized by a lack of social interaction, verbal and nonverbal communication in the first 3 years of life. The distinctive social behaviors include an avoidance of eye contact, problems with emotional control or understanding the emotions of others, and a markedly restricted range of activities and interests</q> - Park et. al.</p>
-                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4766109/" class="read-more btn btn-primary" role="button">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img class="img-responsive" src="assets/img/a2.jpg" alt="">
-                <div class="container">
-                    <div class="carousel-caption" align="left">
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img class="img-responsive" src="assets/img/a3.jpg" alt="">
-                <div class="container">
-                    <div class="carousel-caption" align="left">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>
-
+<!-- Start Contents row 1 -->
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -81,23 +96,13 @@
     </div>
   </div>
 </div>
+<!-- End Contents row 1-->
+
 
 <div class="container">
     <h3>Registered Providers in Victoria</h3>
-    <p>Retrieving data from <a href="https://www.ndis.gov.au/participants/working-providers/find-registered-provider">NDIS</a>, there are over 1,700 registerd service providers involves in <code class="code">Assist-Travel/Transport</code>
-      <code class="code">Assist Prod-Pers Care/Safety</code>
-      <code class="code">Assistive Equip-Recreation</code>
-      <code class="code">Community Nursing Care</code>
-      <code class="code">Behaviour Support</code>
-      <code class="code">Early Childhood Supports</code>
-      <code class="code">Specialised Disability Accommodation</code>
-      <code class="code">Assist Personal Activities</code>
-      <code class="code">Assist-Life Stage, Transition</code>
-      <code class="code">Daily Tasks/Shared Living</code>
-      <code class="code">Group/Centre Activities</code>
-      <code class="code">Participate Community</code>
-      <code class="code">Support Coordination</code>
-      <code class="code">Development-Life Skills</code>
+    <p>Retrieving data from <a href="https://www.ndis.gov.au/participants/working-providers/find-registered-provider">NDIS</a>, there are over 1,700 registerd service providers involves in Assist-Travel/Transport, Assist Prod-Pers Care/Safety, Assistive Equip-Recreation, Community Nursing Care, Behaviour Support, Early Childhood Supports, Specialised Disability Accommodation, Assist Personal Activities, Assist-Life Stage, Transition, Daily Tasks/Shared Living, Group/Centre Activities, Participate Community, Support Coordination, Development-Life Skills.</p>
+
     <div class='tableauPlaceholder' id='viz1555134710541' style='position: relative'><noscript>
       <a href='#'>
       <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;VI&#47;VIC_HealthcareProvider&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript>
@@ -135,6 +140,7 @@
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);                
     </script>
+</div>
 </div>
 
 </body>
