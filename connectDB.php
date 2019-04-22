@@ -1,6 +1,6 @@
 <?php
-$servername = "http://autismicare.ml/";
-$username = "";
+$servername = "localhost:3306";
+$username = "root";
 $password = "toor";
 $dbname = "AutismICare";
 
