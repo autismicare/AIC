@@ -18,8 +18,8 @@ $(document).ready(function() {
 	      var event = res.events[i];
 	      var eventTime = moment(event.start.local).format('M/D/YYYY h:mm A');
 	      console.dir(event);
-	      s += "<div class='eventList'>";
-	      s += "<h4><a href='" + event.url + "'>" + event.name.text + "</a></h4>";
+	      s += "<div>";
+	      s += "<a href='" + event.url + "'>" + event.name.text + "</a>";
 	      s += "<p><b>Location: " + event.venue.address.address_1 + "</b><br/>";
 	      s += "<b>Date/Time: " + eventTime + "</b></p><br/><br/>";          
 	      //s += "<p>" + event.description.text + "</p>";
@@ -35,10 +35,4 @@ $(document).ready(function() {
 //
 //End Getting Upcoming Event from Evenbrite
 //
-
-//Over flow content
-document.querySelector('button').addEventListener('click', function () {
-  document.querySelector('p').classList.toggle('ow');
-}, false);
-
 
