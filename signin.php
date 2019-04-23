@@ -11,8 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
-  <script type="text/javascript" src="js/scripts.js"></script>
-    <link rel="stylesheet" href="css/signup.css">  
+  <link rel="stylesheet" href="css/signup.css">  
 
 </head>
 
@@ -20,20 +19,20 @@
 
 <!-- Start Top Nav Bar -->
   <nav class="navbar navbar-expand-md bg-success navbar-dark fixed-top">
-    <a class="navbar-brand" href="index.html">AutismICare</a>
+    <a class="navbar-brand" href="index.php">AutismICare</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="fact.html"><i class="fa fa-bullhorn"></i>   Facts about Autism  </a>
+          <a class="nav-link" href="fact.php"><i class="fa fa-bullhorn"></i>   Facts about Autism  </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="event.html"><i class="fa fa-calendar"></i>   Upcoming Autism Events  </a>
+          <a class="nav-link" href="event.php"><i class="fa fa-calendar"></i>   Upcoming Autism Events  </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signup.html"><i class="fa fa-sign-in"></i>   Signup / Sign-in  </a>
+          <a class="nav-link" href="signup.php"><i class="fa fa-sign-in"></i>   Signup / Sign-in  </a>
         </li>    
       </ul>
     </div>  
@@ -64,7 +63,7 @@
               Or sign in manually:
             </div>
             <div class="mx-2">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="email" placeholder="Email Address" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
             </div>

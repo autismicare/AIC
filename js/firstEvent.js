@@ -14,18 +14,23 @@ $(document).ready(function() {
 	  function(res) {
 	  if(res.events.length) {
 	    var s = "";
-	    for(var i=0;i<res.events.length;i++) {
-	      var event = res.events[i];
-	      var eventTime = moment(event.start.local).format('M/D/YYYY h:mm A');
+	      var event = res.events[0];
+	      var eventTime = moment(event.start.local).format('D/M/YYYY h:mm A');
 	      console.dir(event);
-	      s += "<div>";
+		  var eventImage = event.logo;
+	      //if eventImage is not null
+	      if ( eventImage != null ) {
+			eventImage = event.logo.original.url;
+			}
+	  	  else
+	  		{ eventImage = "assets/img/event_template.jpg"; }	      
+	  	  s += "<div>";
+	      s += "<img src='" + eventImage + "' height='50%' width=50%'><br>";
 	      s += "<a href='" + event.url + "'>" + event.name.text + "</a>";
 	      s += "<p><b>Location: " + event.venue.address.address_1 + "</b><br/>";
-	      s += "<b>Date/Time: " + eventTime + "</b></p><br/><br/>";          
-	      //s += "<p>" + event.description.text + "</p>";
-	      //s += "<img src='" + event.logo.url + "'>";
-	      s += "</div>";
-	    }
+	      s += "<b>Date/Time: " + eventTime + "</b></p>";          
+	      s += "<a href='event.php' class='btn btn-secondary' role='button'>More Events</a>";
+	      s += "</div><br><br>";
 	    $events.html(s);
 	  } else {
 	    $events.html("<p>Sorry, there are no upcoming events.</p>");
