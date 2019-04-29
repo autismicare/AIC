@@ -1,6 +1,5 @@
 @charset 'utf8';
 
-
 * {
   box-sizing: border-box;
 }
@@ -55,7 +54,7 @@ input[type=submit]:hover {
   float: center;
     width: 80%;
   margin: auto;
-  padding: 0 50px;
+  padding: 0 0px;
   margin-top: 4px;
 }
 

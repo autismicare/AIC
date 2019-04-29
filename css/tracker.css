@@ -1,0 +1,32 @@
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 5em;
+    padding: 0px 2px 1px;
+    word-wrap: break-word;
+}
+select {
+  word-wrap: break-word;
+  border-radius: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none; 
+}
+
+select option{
+	/*display:inline-block;*/
+    word-wrap: break-word;
+  	background-color: transparent !important;
+	border: 0px solid #e4e4e4;
+	color: #000;
+
+}
+/*select option:hover{ box-shadow: 0 0 10px 10px #e1358f inset; }*/
+
+input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
+    border-radius: 12px;
+
+input[type="date" i], input[type="datetime-local" i], input[type="month" i], input[type="time" i], input[type="week" i] {
+    padding-inline-start: 3px;
+    padding: 2px;
+}
