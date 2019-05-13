@@ -1,195 +1,375 @@
-<!--new record works!-->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Autism I Care : Home </title>
+  <title>Autism I Care </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">  
-  <link rel="stylesheet" href="css/tracker.css">  
+  <link rel="stylesheet" href="css/checkbox2.css">
+  <link rel="stylesheet" href="css/main.css">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
   <script type="text/javascript" src="js/dateTime.js"></script>
-  
+          
 <?php include('checkuser.php') ?>
+
 <?php
+if(isset($_REQUEST['new_mood'])){
+  $uid = $row['User_ID']; 
+  $valuenm=$_REQUEST['Mood_name'];
+  $valueim=$_REQUEST['Mood_icon'];
+  $querynm = "INSERT INTO CMood (CM_name,User_ID,CM_icon) VALUES('$valuenm','$uid','$valueim')";
+  mysqli_query($db,$querynm);
+}
+
+if(isset($_REQUEST['new_behaviour'])){
+  $uid = $row['User_ID']; 
+  $valuenb=$_REQUEST['Behaviour_name'];
+  $valueib=$_REQUEST['Behaviour_icon'];
+  $querynb = "INSERT INTO CBehaviour (CB_name,User_ID,CB_icon) VALUES('$valuenb','$uid','$valueib')";
+  mysqli_query($db,$querynb);
+}
+
+if(isset($_REQUEST['new_factor'])){
+  $uid = $row['User_ID']; 
+  $valuenf=$_REQUEST['Factor_name'];
+  $valueif=$_REQUEST['Factor_icon'];
+  $querynf = "INSERT INTO CFactor (CF_name,User_ID,CF_icon) VALUES('$valuenf','$uid','$valueif')";
+  mysqli_query($db,$querynf);
+}
 
 if (isset($_REQUEST['chart'])) {
-	$valuedt = $_REQUEST['datetime'];
-	$valuem = $_REQUEST['mood'];
+  $errors = array(); 
+  $valuedt = $_REQUEST['datetime'];
+  $valuem = $_REQUEST['mood'];
   $valueb = $_REQUEST['behaviour'];
   $valuef = $_REQUEST['factor'];
+  $valuecm = $_REQUEST['cmood'];
+  $valuecb = $_REQUEST['cbehaviour'];
+  $valuecf = $_REQUEST['cfactor'];
   $uid = $row['User_ID']; 
   $valuer = $_REQUEST['rate'];
-	$valuew = $_REQUEST['weather'];
-	echo "$valuedt";
-  $query = "INSERT INTO MBTracker (User_ID, Weather_ID, Rating_ID,Tracking_date)VALUES('$uid', '$valuew[0]', '$valuer[0]','$valuedt')";
+  $valuew = $_REQUEST['weather'];
+  $valuen = $_REQUEST['note'];
+  
+  
+  $query = "INSERT INTO MBTracker (User_ID, Weather_ID, Rating_ID,Tracking_date,notes)VALUES('$uid', '$valuew[0]', '$valuer[0]','$valuedt','$valuen')";
   mysqli_query($db, $query); 
   $queryuid = "SELECT MAX(Tracker_ID) as tid from MBTracker where User_ID = '$uid'";
   $tid=mysqli_query($db, $queryuid);
   $tidrow = mysqli_fetch_array($tid);
   $tirow = $tidrow['tid'];
   
-  for($i=0; $i<(count($valuem));$i++)
+    for($i=0; $i<(count($valuem));$i++)
   {
-	$querymood = "INSERT INTO Mood_set (Mood_ID, Tracker_ID)VALUES('$valuem[$i]','$tirow')";
-	mysqli_query($db, $querymood); 
+  $querymood = "INSERT INTO Mood_set (Mood_ID, Tracker_ID)VALUES('$valuem[$i]','$tirow')";
+  mysqli_query($db, $querymood); 
   }
   
+  for($i=0; $i<(count($valuecm));$i++)
+  {
+  $querycmood = "INSERT INTO CMood_set (CMood_ID, Tracker_ID)VALUES('$valuecm[$i]','$tirow')";
+  mysqli_query($db, $querycmood); 
+  }
+
   for($i=0; $i<(count($valueb));$i++)
   {
-	$querybehave = "INSERT INTO Behaviour_set (Behaviour_ID, Tracker_ID)VALUES('$valueb[$i]','$tirow')";
-	mysqli_query($db, $querybehave); 
+  $querybehave = "INSERT INTO Behaviour_set (Behaviour_ID, Tracker_ID)VALUES('$valueb[$i]','$tirow')";
+  mysqli_query($db, $querybehave); 
   }
   
+  for($i=0; $i<(count($valuecb));$i++)
+  {
+  $querycbehave = "INSERT INTO CBehaviour_set (CBehaviour_ID, Tracker_ID)VALUES('$valuecb[$i]','$tirow')";
+  mysqli_query($db, $querycbehave); 
+  }
+  
+
   for($i=0; $i<(count($valuef));$i++)
   {
-	$queryfactor = "INSERT INTO Factor_set (Factor_ID, Tracker_ID)VALUES('$valuef[$i]','$tirow')";
-	mysqli_query($db, $queryfactor); 
+  $queryfactor = "INSERT INTO Factor_set (Factor_ID, Tracker_ID)VALUES('$valuef[$i]','$tirow')";
+  mysqli_query($db, $queryfactor); 
   }
-  echo "<body style='background:linear-gradient(to right,#fce4ed,#ffe8cc)'>
-		<div class='alert alert-success alert-dismissible mt-5'>
-	  		<button type='button' class='close' data-dismiss='alert'>&times;</button>
-	  		<h2><strong>Success!</strong> the record is saved.</h2>
-	  	</div></body>";
-  header( "refresh:2; url=trackerMain.php" ); 
+  
+  for($i=0; $i<(count($valuecf));$i++)
+  {
+  $querycfactor = "INSERT INTO CFactor_set (CFactor_ID, Tracker_ID)VALUES('$valuecf[$i]','$tirow')";
+  mysqli_query($db, $querycfactor); 
+  }
+
+  echo "<body style='background-color:#f2f2f2'>";
+  include 'navBar_login.php'; 
+  echo  "<br><br><br><div class='alert alert-success alert-dismissible mt-5'>
+        <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        <br><h2><strong>Success!</strong> the record is saved.</h2><br>
+      </div></body>";
+  header( "refresh:2; url=show_chart.php" ); 
   die(); 
 }
 
 ?>
-
-<body style="background:linear-gradient(to right,#fce4ed,#ffe8cc)">
+<body>
 <!-- Start Top Nav Bar -->
-  <nav class="navbar navbar-expand-md bg-success navbar-dark fixed-top">
-    <a class="navbar-brand" href="indexs.php">AutismICare</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item ml-2">
-          <a class="nav-link"><strong><?php echo "Welcome ". $username ."!" ?></strong></a>
-        </li> 
-        <li class="nav-item ml-2">
-          <a class="nav-link" href="facts.php"><i class="fa fa-bullhorn"></i> Facts about Autism  </a>
-        </li>
-        <li class="nav-item ml-2">
-          <a class="nav-link" href="events.php"><i class="fa fa-calendar"></i> Upcoming Autism Events  </a>
-        </li>
-        <li class="nav-item ml-2">
-          <a class="nav-link" href="trackerMain.php"><i class="fa fa-book"></i> Mood & Behaviour Tracker  </a>
-        </li> 
-        <li class="nav-item ml-2">
-          <a class="nav-link" href="childprofile.php"><i class="fas fa-baby"></i> Child Profile</a>
-        </li> 
-        <li class="nav-item ml-2">
-          <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        </li> 
-      </ul>
-    </div>  
-  </nav><br><br><br>
-  	<div class="container-fluid ml-2">
-				<form method="post">				
-				<label for="record-time" class="mt-2"><strong>Choose Date/time : </strong></label>
-				<input type="datetime-local" id="myDatetimeField" name="datetime" /><br>	
-	</div>
-	<!-- Start Contents row 1 -->
-	<!--<div class="d-flex justify-content-center ml-2">-->
-	<div class="container-fluid ml-2">
-		<div class="row">
-			<div class ="col">
-			<div class ="container-fluid">
+<?php include 'navBar_login.php'; ?><br><br><br>
+<!-- End Top Nav Bar -->
 
-			</div>				
-				<strong>How would you rate your child's day? </strong><br>			
-				<?php				
-				$query = "select  * from Rating";
-				$result = mysqli_query($db, $query);	
-				echo "<select name='rate[]'  id ='rate'  size='4' required>";
-				while ($row = mysqli_fetch_array($result)) {
-					echo "<option class='list-group-item list-group-item-action d-flex align-items-center'";
-					echo "value='" . $row['Rating_ID'] ."' style='width:300px;background:url(" . $row['R_icon'] 
-					. ") no-repeat 100% 50%;background-size:26%'>" . $row['Rating_Desc']."</option>";
-				}
-				echo "</select>";
-				?>
-			</div>
-			<div class ="col">			
-				<strong>Mood : </strong><br>
-				<?php
-				$query = "select  * from Mood";
-				$result = mysqli_query($db, $query);
-				echo "<select name='mood[]'  id ='mood' multiple required >";
-				while ($row = mysqli_fetch_array($result)) {
-					echo "<option class='list-group-item list-group-item-action d-flex align-items-center'";
-					echo "value='" . $row['Mood_ID'] ."' style='width:300px;background:url(" . $row['M_icon'] 
-					. ") no-repeat 100% 50%;background-size:26%'>" . $row['M_name']."</option>";
-				}
-				echo "</select>";
-				?>
-			</div>
-		</div>
-		<div class="row">
-			<div class ="col">				
-				<br><strong>Behaviour : </strong><br>				
-				<?php
-				$query = "select  * from Behaviour";
-				$result = mysqli_query($db, $query);
-				echo "<select name='behaviour[]'  id ='behaviour' multiple required >";
-				while ($row = mysqli_fetch_array($result)) {			
-					echo "<option class='list-group-item list-group-item-action d-flex align-items-center'";
-					echo "value='" . $row['Behaviour_ID'] ."' style='width:300px;background:url(" . $row['B_icon'] 
-					. ") no-repeat 100% 50%;background-size:25%'>" . $row['B_name']."</option>";
-				}
-				echo "</select>";
-				?>
-			</div>
-			<div class ="col">				
-				<br><strong>Factor : </strong><br>				
-				<?php
-				$query = "select  * from Factor";
-				$result = mysqli_query($db, $query);
-				echo "<select name='factor[]'  id ='factor' multiple required>";
-				while ($row = mysqli_fetch_array($result)) {
-					echo "<option class='list-group-item list-group-item-action d-flex align-items-center'";
-					echo "value='" . $row['Factor_ID'] ."' style='width:300px;background:url(" . $row['F_icon'] 
-					. ") no-repeat 100% 50%;background-size:25%'>" . $row['F_name']."</option>";
-				}				
-				echo "</select>";
-				?>
-			</div>
-		</div>
-		<div class="row">
-			<div class ="col">	
-				<br><strong>Weather : </strong><br>				
-				<?php
-				$query = "select  * from Weather";
-				$result = mysqli_query($db, $query);
-				echo "<select name='weather[]'  id ='weather' size='4' required>";
-				while ($row = mysqli_fetch_array($result)) {
-					echo "<option class='list-group-item list-group-item-action d-flex align-items-center'";
-					echo "value='" . $row['Weather_ID'] ."' style='width:300px;background:url(" . $row['W_icon'] 
-					. ") no-repeat 100% 50%;background-size:25%'>" . $row['W_name']."</option>";
-				}					
-				echo "</select>";
-				?><br><br>
-			</div>
-			<div class="col mt-5">				
-				<br><br><br><br>
-				<a class="btn btn-secondary" href="trackerMain.php">BACK</a>
-				<input class="btn btn-primary" type="submit" value="SAVE" name ="chart">
-				</form>
-			</div>
-		</div>   
-		</div>	
- 
+  <form method="post" style="text-align: center;">      
+
+  <div class="row mt-2">
+    <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">
+
+      <strong style="font-size:22px;">Choose date/time : </strong><br>
+      <input type="datetime-local" id="myDatetimeField" name="datetime" style="background-color:#f2f2f2" /><br />   
+          
+      <hr>
+
+      <strong style="font-size:22px;">How would you rate your child's day? </strong><br>    
+      <?php       
+      $query = "SELECT * FROM Rating";
+            $result = mysqli_query($db, $query);
+            $rows = mysqli_num_rows($result);
+            while ($row = mysqli_fetch_array($result)) {
+            echo '<label class="block" ><input type="radio" name="rate" value="'.$row['Rating_ID'].'"><img src="'.$row['R_icon'].'" style="width:40%;height:40%"><div class="checkmark" >'.$row['Rating_Desc'].'</div></label> ';
+            //without the Rating desc
+      }
+      ?>
+    </div>
+  
+    <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">    
+    <!-- <div class="col-md-12 col-lg-6"> -->
+    <strong style="font-size:22px;">Mood (can be multiple) :</strong><br>
+        <?php
+        $query = "SELECT  * FROM Mood";
+                $result = mysqli_query($db, $query);        
+                $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+                //echo '<label class="block"><input type="checkbox" name="mood[]" value="'.$row['Mood_ID'].'"><span class="checkmark"></span> '.$row['M_name'].' <img src="'.$row['M_icon'].'" style="width:20%;height:20%"></label> &nbsp;&nbsp;&nbsp;&nbsp;';
+                echo '<label class="block"><input type="checkbox" name="mood[]" value="'.$row['Mood_ID'].'"><img src="'.$row['M_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$row['M_name'].'</div></label> &nbsp;&nbsp;';
+        }
+        ?>
+
+        <?php
+        $queryc = "SELECT  * FROM CMood where User_ID='$uid'";
+                $resultc = mysqli_query($db, $queryc);        
+                $rowsc = mysqli_num_rows($resultc);
+                while ($rowc = mysqli_fetch_array($resultc)) {
+                //echo '<label class="block"><input type="checkbox" name="mood[]" value="'.$row['Mood_ID'].'"><span class="checkmark"></span> '.$row['M_name'].' <img src="'.$row['M_icon'].'" style="width:20%;height:20%"></label> &nbsp;&nbsp;&nbsp;&nbsp;';
+                echo '<label class="block"><input type="checkbox" name="cmood[]" value="'.$rowc['CMood_ID'].'"><img src="'.$rowc['CM_icon'].'" style="width:40%;height:100%"><div class="checkmark">'.$rowc['CM_name'].'</div></label> &nbsp;&nbsp;';
+        }
+        ?>
+
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#moodModal"><i class="fas fa-plus"></i></button>
+
+      </div>
+    </div>
+
+  <div class="row">    
+    <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">
+
+      <strong style="font-size:22px;">Behaviour (can be multiple) :</strong><br>
+        <?php
+        $query = "SELECT  * FROM Behaviour";
+        $result = mysqli_query($db, $query);
+        $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+              echo '<label class="block"><input type="checkbox" name="behaviour[]" value="'.$row['Behaviour_ID'].'"><img class="ml-2" src="'.$row['B_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$row['B_name'].'</div></label> &nbsp;&nbsp;';        
+        }
+        ?>
+        <br>
+        <?php
+        $queryc = "SELECT  * FROM CBehaviour where User_ID='$uid'";
+                $resultc = mysqli_query($db, $queryc);        
+                $rowsc = mysqli_num_rows($resultc);
+                while ($rowc = mysqli_fetch_array($resultc)) {
+                echo '<label class="block"><input type="checkbox" name="cbehaviour[]" value="'.$rowc['CBehaviour_ID'].'"><img src="'.$rowc['CB_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$rowc['CB_name'].'</div></label> &nbsp;&nbsp;';
+        }
+      ?>
+      <br>        
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#behaviourModal"><i class="fas fa-plus"></i></button>
+
+    </div>
+
+    <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">
+      <strong style="font-size:22px;">Factor (can be multiple) :</strong><br>
+
+        <?php
+        $query = "SELECT  * FROM Factor";
+                $result = mysqli_query($db, $query);        
+                $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+              echo '<label class="block"><input type="checkbox" name="factor[]" value="'.$row['Factor_ID'].'"><img src="'.$row['F_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$row['F_name'].'</div></label> &nbsp;&nbsp;';
+        }
+        ?>
+        <br>
+        <?php
+        $queryc = "SELECT  * FROM CFactor where User_ID='$uid'";
+                $resultc = mysqli_query($db, $queryc);        
+                $rowsc = mysqli_num_rows($resultc);
+                while ($rowc = mysqli_fetch_array($resultc)) {
+                echo '<label class="block"><input type="checkbox" name="cfactor[]" value="'.$rowc['CFactor_ID'].'"><img src="'.$rowc['CF_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$rowc['CF_name'].'</div></label> &nbsp;&nbsp;';
+        }
+        
+        ?>
+        <br>        
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#factorModal"><i class="fas fa-plus"></i></button>
+        
+      </div>
+
+    </div>
+
+    <div class="row">    
+      
+      <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">    
     
-</div>
-<script>
+        <strong style="font-size:22px;">Weather :</strong><br>
+          <?php
+          $query = "SELECT  * FROM Weather";
+          $result = mysqli_query($db, $query);
+          $rows = mysqli_num_rows($result);
+                  while ($row = mysqli_fetch_array($result)) {
+                  echo '<label class="block"><input type="radio" name="weather" value="'.$row['Weather_ID'].'"><img src="'.$row['W_icon'].'" style="width:40%;height:40%"><div class="checkmark">'.$row['W_name'].'</div></label> &nbsp;&nbsp;';       
+          }
+          ?>
+      </div>
+
+      <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">          
+        <!-- Start Note -->
+        <div class="form-group d-flex justify-content-center">
+        <strong class="mr-2" style="font-size:22px;">Note : </strong><br>
+          <textarea class="form-control" rows="4" id="note" name="note" placeholder="Add text here.." style="width:80%"></textarea>
+        </div> 
+        <!-- End Note -->      
+      </div>
+      
+    </div>
+
+        <br>
+        <input class="btn btn-primary" type="submit" value="SAVE" name ="chart">
+
+    </form>
+    <!-- End Form -->
+
+  <div class="col">        
+        <a class="btn btn-secondary" href="trackerMain.php">BACK</a>
+  </div>
+
+  <!-- Start Mood Modal -->
+  <div class="modal fade" id="moodModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+	  <h5 class="modal-title">Please select an icon for custom mood:</h5>
+          
+	 <button type="button" class="close" data-dismiss="modal">&times;</button>
+	 
+        </div>
+
+        <div class="modal-body">
+           <form method=post>
+
+	  <label for="Mood_name">Mood Name:</label>
+
+          <input type="text" class="form-control" id="Mood_name" name="Mood_name" required>
+                 <?php       
+          $query = "SELECT * FROM CMood_icons";
+                $result = mysqli_query($db, $query);
+                $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+                echo '<label class="block_custom"><input type="radio" name="Mood_icon" value="'.$row['CM_icon'].'" required ><img class="checkmark" src="'.$row['CM_icon'].'"  style="width:10%;height:10%;"></label> &nbsp;';                                       
+                //without the Rating desc
+          }
+          ?>               
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input class="btn btn-primary" type="submit" value="Save" name ="new_mood">
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Mood Modal -->
+
+  <!-- Start Behaviour Modal -->
+  <div class="modal fade" id="behaviourModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Please select an icon for custom behaviour</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+        <form method=post>
+          <label for="Behaviour_name">Behaviour Name:</label>
+          <input type="text" class="form-control" id="Behaviour_name" name="Behaviour_name" required>
+          <?php       
+          $query = "SELECT * FROM CBehaviour_icons";
+                $result = mysqli_query($db, $query);
+                $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+                  echo '<label class="block_custom"><input type="radio" name="Behaviour_icon" value="'.$row['CB_icon'].'" required ><img class="checkmark" src="'.$row['CB_icon'].'"  style="width:10%;height:10%;"></label> &nbsp;';                                       
+          }
+          ?>                  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input class="btn btn-primary" type="submit" value="Save" name ="new_behaviour">
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Behaviour Modal -->
+
+  <!-- Start Factor Modal -->
+  <div class="modal fade" id="factorModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Please select an icon for custom factor</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      
+        <div class="modal-body">
+        <form method=post>
+          <label for="Factor_name">Factor Name:</label>
+          <input type="text" class="form-control" id="Factor_name" name="Factor_name" required>
+          <?php       
+          $query = "SELECT * FROM CFactor_icons";
+                $result = mysqli_query($db, $query);
+                $rows = mysqli_num_rows($result);
+                while ($row = mysqli_fetch_array($result)) {
+                  echo '<label class="block_custom"><input type="radio" name="Factor_icon" value="'.$row['CF_icon'].'" required ><img class="checkmark" src="'.$row['CF_icon'].'"  style="width:10%;height:10%;"></label> &nbsp;';                                       
+          }
+          ?>               
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input class="btn btn-primary" type="submit" value="Save" name ="new_factor">
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Factor Modal -->
+
+ <script>
 $('option').mousedown(function(e) {
     e.preventDefault();
     var originalScrollTop = $(this).parent().scrollTop();

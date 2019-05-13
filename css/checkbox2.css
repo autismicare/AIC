@@ -1,0 +1,173 @@
+.block {
+  display: inline-block;
+  position: relative;
+  /*padding-right: 35px;*/
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default checkbox */
+.block input {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+}
+
+/* On mouse-over, add a grey background color */
+.block:hover input ~ .checkmark {
+  background-color: #ffcc00;
+}
+
+/* When the checkbox is checked, add a blue background */
+.block input:checked ~ .checkmark {
+  color: #2196F3;
+}
+.block input:checked ~ img {
+  background-color: #2196F3;
+}
+/* When the checkbox is checked, add a blue background */
+.block input:checked ~ .label {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+/* Show the checkmark when checked */
+.block input:checked ~ .checkmark:after {
+  /*display: block;*/
+  display: none;
+
+}
+
+/* Style the checkmark/indicator */
+.block .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* hey hey */
+.block_custom {
+  display: contents;
+  position: relative;
+  /*padding-right: 35px;*/
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.block_custom .checkmark{
+  padding: 5px 5px 5px 5px;
+}
+/* Hide the browser's default checkbox */
+.block_custom input {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+}
+
+/* On mouse-over, add a grey background color */
+.block_custom:hover input ~ .checkmark {
+  background-color: #ffcc00;
+}
+
+/* When the checkbox is checked, add a blue background */
+.block_custom input:checked ~ .checkmark {
+  color: #2196F3;
+}
+.block_custom input:checked ~ img {
+  background-color: #2196F3;
+}
+/* When the checkbox is checked, add a blue background */
+.block_custom input:checked ~ .label {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+/* Show the checkmark when checked */
+.block_custom input:checked ~ .checkmark:after {
+  /*display: block;*/
+  display: none;
+
+}
+
+/* Style the checkmark/indicator */
+.block_custom .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*Customised carousel color*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-color: none;
+}
+
+.carousel-control-next-icon{
+  background-image: none;
+}
+.carousel-control-prev-icon{
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: #0099ff;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #0099ff;
+  background-image: none;
+}
+.carousel-control-next {
+    width: 3% !important;
+}
+.carousel-control-prev {
+    width: 3% !important;
+}

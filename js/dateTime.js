@@ -16,6 +16,8 @@ window.addEventListener("load", function() {
     utcString.substring(16,16);
 	var datetimeField = document.getElementById("myDatetimeField");
 	datetimeField.value = localDatetime;
+	datetimeField.max = localDatetime;
+	
 	
 	
 });

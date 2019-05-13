@@ -8,6 +8,8 @@ $errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'toor', 'AutismICare');
+// $db = mysqli_connect('localhost', 'root', '', 'AIC');
+
 
 if($_SESSION['username'] = true)
 {

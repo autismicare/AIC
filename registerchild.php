@@ -7,6 +7,7 @@ $gender = "";
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'toor', 'AutismICare');
+// $db = mysqli_connect('localhost', 'root', '', 'AIC');
 $id= $row["User_ID"];
 ?>
 <?php
@@ -26,7 +27,7 @@ if (isset($_REQUEST['reg_child'])) {
   $query = "INSERT INTO Child (C_name, C_age, C_sex,User_ID) 
                 VALUES('$name', '$age', '$gender','$id')";
   mysqli_query($db, $query);
-  header('location:indexs.php');  
+  header('location:trackerMain.php');  
   
 }
 ?>
@@ -76,7 +77,31 @@ if (isset($_REQUEST['reg_child'])) {
       </div>
       <div class="input-group mt-2">
         <label>Child's Age :</label>
-        <input type="text" name="age" value="<?php echo $age; ?>" placeholder="Age" required>
+        <br>
+          <select name="age" class="form-control" required>
+            <option value="" selected>Select Age</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
+            <option value="6" >6</option>
+            <option value="7" >7</option>
+            <option value="8" >8</option>
+            <option value="9" >9</option>
+            <option value="10" >10</option>
+            <option value="11" >11</option>
+            <option value="12" >12</option>
+            <option value="13" >13</option>
+            <option value="14" >14</option>
+            <option value="15" >15</option>
+            <option value="16" >16</option>
+            <option value="17" >17</option>
+            <option value="18" >18</option>
+            <option value="19" >19</option>
+            <option value="20" >20</option>
+          </select>
+          <br>
       </div>
       <div class="input-group mt-2">
         <label>Sex :  <br/></label>
