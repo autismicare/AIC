@@ -51,16 +51,17 @@
   background-color: #eee;
 }
 </style>
+
 </head>
 <body>
-
 <!-- Top Nav bar -->
 <?php include 'navBar_login.php'; ?><br><br>
 <!-- Top Nav bar -->
   <!-- <div class="container mt-5 shadow p-3"> -->
 
+  
   <div class="container mt-5 shadow p-3">
-      <div class="text-right"><a class="btn btn-secondary" href="trackerMain.php">Back</a></div>
+      <div class="text-right"><a class="btn btn-secondary"  action="action" onclick="window.history.go(-1); return false;" href="">Back</a></div>
       <h3 class="text-center">List of Records</h3>
 
 
@@ -126,13 +127,30 @@
         echo '<strong>Notes : </strong>'.$row1["notes"].'<br>';
       }
       
-      echo '<form method="post"><input type="hidden"  name = "delete" value="'.$row1["Tracker_ID"].'"/>';
-      echo '<input type="submit" name = "deletes"  value="Delete" style="background-color:#dc3545;" /> </form>'; 
+      echo '<form onsubmit="return validate(this);" method="post" action="listRecord.php"><input type="hidden"  name = "delete" value="'.$row1["Tracker_ID"].'"/>';
+      echo '<input type="submit" name = "deletes" value="Delete"  style="background-color:#dc3545;" /></form>'; 
       echo '<hr>';
       echo '</li>';
     }
+    ?>
+    
+    <script>
+        function validate(form) {
+          return confirm("Are you sure you want to delete this record?");
+          if(c)
+          {
+            document.getElementById("myform").submit();
+          }
+          else
+          {
+
+          }
+        }
+    </script>
+
+    <?php
     if(isset($_REQUEST['deletes']))
-    {
+    { 
       $delete = mysqli_real_escape_string($db, $_REQUEST['delete']);
       $query1= "DELETE from CMood_set where Tracker_ID='$delete'";
       $result1 = mysqli_query($db, $query1);
@@ -149,12 +167,12 @@
       $query7= "DELETE from MBTracker where Tracker_ID='$delete'";
       $result7 = mysqli_query($db, $query7);
 
+
       echo "<meta http-equiv='refresh' content='0'>";
     }
-   
-    ?>
+   ?>
 
-
+    
 </ul>
 </div>
 

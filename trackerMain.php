@@ -34,12 +34,12 @@ The charts give a global assessment of their mood based on daily, weekly or even
   </ul> -->
   <ul style="list-style-type: none;">
     <li>
-      <a class="btn btn-primary" href="newrecord.php" style="background:#F2994A;width:45%;height:20%"><i class="fa fa-plus"></i> Add record</a>
-      <a class="btn btn-primary ml-2" href="show_chart.php" style="background:#869EFF;width:45%;height:20%"><i class="fas fa-chart-line"></i> Charts</a>
+      <a class="btn btn-primary" href="newrecord.php" style="background:#02789e;width:45%;height:20%"><i class="fa fa-plus"></i> Add record</a>
+      <a class="btn btn-primary ml-2" href="show_chart.php" style="background:#01a99c;width:45%;height:20%"><i class="fas fa-chart-line"></i> Charts</a>
     </li>
     <li>
-      <a class="btn btn-primary" href="listRecord.php" style="background:#FC40B1;width:45%;height:20%"><i class="fas fa-book"></i> List of records</a>
-      <a class="btn btn-primary ml-2" href="statistic.php" style="background:#5eecc6;width:45%;height:20%"><i class="fas fa-chart-pie"></i> Correlations</a>
+      <a class="btn btn-primary" href="listRecord.php" style="background:#e9b637;width:45%;height:20%"><i class="fas fa-book"></i> List of records</a>
+      <a class="btn btn-primary ml-2" href="statistic.php" style="background:#d31227;width:45%;height:20%"><i class="fas fa-chart-pie"></i> Correlations</a>
     </li>    
   </ul>
 </ul>

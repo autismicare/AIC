@@ -13,7 +13,7 @@ if (isset($_REQUEST['login_user'])) {
   if (mysqli_num_rows($results) == true) {
       $_SESSION['email'] = $email;
       
-      header('location: trackerMain.php');
+      header('location: indexs.php');
     }else {
       array_push($errors, "Invalid email or password");
     }

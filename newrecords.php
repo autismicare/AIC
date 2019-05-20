@@ -16,6 +16,9 @@
   <script type="text/javascript" src="js/to-top-to-btm.js"></script>
   <script type="text/javascript">
     $(function(){
+    
+    var m=0;
+
 
     var requiredCheckboxes = $(':checkbox[name="mood[]"],:checkbox[name="cmood[]"] ');
 
@@ -23,6 +26,7 @@
 
         if(requiredCheckboxes.is(':checked')) {
             requiredCheckboxes.removeAttr('required');
+            m=m+1;
         }
         else
         {
@@ -57,10 +61,9 @@
             requiredCheckboxesb.attr('required', 'required');
         }
     });
+
+});
     
-    });
-
-
   </script>
 <?php include('as.php') ?>
 
@@ -167,7 +170,7 @@ if (isset($_REQUEST['chart'])) {
   <button onclick="bottomFunction()" id="bottomBtn" title="Go to bottom" style="background-color:red;"><i class="fas fa-arrow-down"></i></button>
 
 
-  <form method="post" onsubmit="return validate()" style="text-align: center;">      
+  <form method="post"  style="text-align: center;">      
 
   <div class="row mt-2">
     <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">
@@ -306,7 +309,7 @@ if (isset($_REQUEST['chart'])) {
     </div>
 
         <br>
-        <input class="btn btn-primary" type="submit" value="SAVE" name ="chart">
+        <input class="btn btn-primary" type="submit" value="SAVE"  name ="chart">
 
     </form>
     <!-- End Form -->

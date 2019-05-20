@@ -17,5 +17,5 @@ function topFunction() {
 }
 
 function bottomFunction() {
-	window.scrollTo(0, document.body.scrollHeight);
+  window.scrollTo(0, document.body.scrollHeight);
 }

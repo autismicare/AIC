@@ -38,7 +38,9 @@
     
       <h3>Personal Profile</h3><br>
       <img src="./assets/img/user.png" style="width:120px;height:120px;"><br><br>
+      
       <?php 
+      // fetching data from database of the registered username
         for ($i=1;$i<=$rows_2;$i++)
             {
                 $row =  mysqli_fetch_array($result_2);
@@ -64,6 +66,7 @@
           </thead>
           <tbody>
             <?php
+            // fetching data from database of the Child's Profile
             for ($i=1;$i<=$rows;$i++)
             {
                 $row1 =  mysqli_fetch_array($result);
@@ -161,6 +164,8 @@
   <!-- End Factor Modal -->
 
   <?php
+
+  // Updating data to database of the Child's Profile
   session_start();
   $valuecn = "";
   $valueca = "";
@@ -183,6 +188,6 @@
 ?>
 
   <div class='container-fluid text-left'>
-    <a class="btn btn-secondary mt-5 ml-2" href="trackerMain.php">Back</a>    
+    <a class="btn btn-secondary mt-5 ml-2" action="action" onclick="window.history.go(-1); return false;" href="">Back</a>    
     </div>
 

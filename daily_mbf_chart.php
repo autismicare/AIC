@@ -1,7 +1,7 @@
 <?php
         include('checkuser.php');
         $uid = $row["User_ID"];     
-    //the SQL query to be executed
+    //the SQL query to be executed for Mood, Custom Mood, Behaviour, Custom Behaviour, Factor and Custom Factor.
     $query1 = "SELECT m.M_name as Mood_type, count(m.M_name) as Mood_count , m.M_icon as Mood_icon
 	from Mood m, Mood_set ms,
 	(select * from MBTracker where User_ID = '$uid' and  to_days(Tracking_date) = (select max(to_days(Tracking_date)) from MBTracker where User_ID = '$uid')) as tr

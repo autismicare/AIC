@@ -8,13 +8,22 @@ echo "
     <div class='collapse navbar-collapse' id='collapsibleNavbar'>
       <ul class='navbar-nav'>
         <li class='nav-item ml-2'>
-          <a class='nav-link' href='fact.php'><i class='fa fa-bullhorn ml-2'></i> Facts  </a>
+          <a class='nav-link' href='fact.php'><i class='fa fa-bullhorn'></i> Facts </a>
         </li>
         <li class='nav-item ml-2'>
-          <a class='nav-link' href='event.php'><i class='fa fa-calendar ml-2'></i> Upcoming Events  </a>
+          <a class='nav-link' href='event.php'><i class='fa fa-calendar'></i> Upcoming Events </a>
         </li>
         <li class='nav-item ml-2'>
-          <a class='nav-link' href='trackerMain.php'><i class='fa fa-book ml-2'></i> Diary  </a>
+          <a class='nav-link' href='newrecord.php'><i class='fas fa-plus'></i> Add New Record  </a>
+        </li>
+        <li class='nav-item ml-2'>
+          <a class='nav-link' href='show_chart.php'><i class='fas fa-chart-line'></i> Charts  </a>
+        </li>
+        <li class='nav-item ml-2'>
+          <a class='nav-link' href='listRecord.php'><i class='fas fa-list-ul'></i> List of Records  </a>
+        </li>
+        <li class='nav-item ml-2'>
+          <a class='nav-link' href='statistic.php'><i class='fab fa-hubspot'></i> Correlation  </a>
         </li> 
         <li class='nav-item'>
           <a class='nav-link' href='login.php'><i class='fas fa-sign-in-alt ml-2'></i>   Signup / Sign-in  </a>       

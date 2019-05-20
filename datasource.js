@@ -1,2 +1,0 @@
-
-window.Airport_Count = [{"label":"Mixing Colour","value":"7","icon":"assets\/img\/Factor\/Mixingcolour.png"},{"label":"Typical household noise","value":"7","icon":"assets\/img\/Factor\/Typicalhouseholdnoise.png"},{"label":"Haircut","value":"5","icon":"assets\/img\/Factor\/Haircut.png"},{"label":"Disrupted routine","value":"3","icon":"assets\/img\/Factor\/Disruptedroutine.png"},{"label":"Playground","value":"1","icon":"assets\/img\/Factor\/Playground.png"}]

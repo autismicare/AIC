@@ -68,17 +68,17 @@
 
 <!-- Start Contents -->
 <ul class="container mt-2 shadow p-3">
-<h3><a href="trackerMain.php">Diary</a></h3>
+<h3>Diary</h3>
   <p class="text-left">Diary offers parents the ability to track their child's mood and behaviour on a daily basis. Recognize the external factors that affect them while learning their mood patterns. A wide range of moods are provided as colorful and expressive emoticons and pictures, which can be  be rated as frequently as desired so that changes in mood state can be recorded as often as needed. 
 The charts give a global assessment of their mood based on daily, weekly or even monthly inputs.</p>
   <ul style="list-style-type: none;">
     <li>
-      <a class="btn btn-primary" href="newrecord.php" style="background:#F2994A;width:45%;height:20%"><i class="fa fa-plus"></i> Add record</a>
-      <a class="btn btn-primary ml-2" href="show_chart.php" style="background:#869EFF;width:45%;height:20%"><i class="fas fa-chart-line"></i> Charts</a>
+      <a class="btn btn-primary" href="newrecord.php" style="background:#02789e;width:45%;height:20%"><i class="fa fa-plus"></i> Add record</a>
+      <a class="btn btn-primary ml-2" href="show_chart.php" style="background:#01a99c;width:45%;height:20%"><i class="fas fa-chart-line"></i> Charts</a>
     </li>
     <li>
-      <a class="btn btn-primary" href="listRecord.php" style="background:#FC40B1;width:45%;height:20%"><i class="fas fa-book"></i> List of records</a>
-      <a class="btn btn-primary ml-2" href="statistic.php" style="background:#5eecc6;width:45%;height:20%"><i class="fas fa-chart-pie"></i> Correlations</a>
+      <a class="btn btn-primary" href="listRecord.php" style="background:#e9b637;width:45%;height:20%"><i class="fas fa-list-ul"></i> List of records</a>
+      <a class="btn btn-primary ml-2" href="statistic.php" style="background:#d31227;width:45%;height:20%"><i class="fab fa-hubspot"></i> Correlations</a>
     </li>    
   </ul>
 </ul>

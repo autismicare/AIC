@@ -1,4 +1,6 @@
-<?php  if (count($errors) > 0) : ?>
+<?php  
+// Error file for the error handling in whole website
+if (count($errors) > 0) : ?>
   	<?php foreach ($errors as $error) : ?>
 		<div class="alert alert-danger alert-dismissible">
 	  		<button type="button" class="close" data-dismiss="alert">&times;</button>

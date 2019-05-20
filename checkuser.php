@@ -1,8 +1,9 @@
 <?php 
 session_start();
-$errors = array(); 
+// Error Handling
+$errors = array();
+// Connect to Database 
 $db = mysqli_connect('localhost', 'root', 'toor', 'AutismICare');
-// $db = mysqli_connect('localhost', 'root', '', 'AIC');
 
 $email = $_SESSION['email'];
 $user_check_query = "SELECT * FROM User WHERE U_email='$email' ";

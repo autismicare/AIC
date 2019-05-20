@@ -104,6 +104,8 @@ $option = '';
           }]
       });
       chart.render();
+
+      
       
       }
       </script>

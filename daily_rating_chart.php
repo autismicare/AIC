@@ -1,7 +1,7 @@
 <?php
         include('checkuser.php');
         $uid = $row["User_ID"];     
-    //the SQL query to be executed
+    //the SQL query to be executed 
     $query1 = "SELECT User_ID, Rating_ID ,date_format(Tracking_date, '%H:%i') as Tracking_Time from MBTracker where User_ID = '$uid' 
     and to_days(Tracking_date) = (select max(to_days(Tracking_date)) from MBTracker where User_ID = '$uid') order by Tracking_Time";
     //storing the result of the executed query

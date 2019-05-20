@@ -58,11 +58,12 @@ include('as.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">  
+  <link rel="stylesheet" href="css/main_v4.css">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+  <script type="text/javascript" src="js/to-top-to-btm.js"></script>
     <script src="js/ej2.min.js" type="text/javascript"></script> 
     <script src="js/tree.js" type="text/javascript"></script>
  
@@ -75,6 +76,7 @@ include('as.php');
   <?php include ('navBar_login.php'); ?><br><br>
 <!-- End Top Nav Bar -->
 
+  <button class="sticky btn btn-secondary" action="action" onclick="window.history.go(-1); return false;" id="backBtn" title="BACK">BACK</button>  
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -83,25 +85,36 @@ include('as.php');
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 
 <!-- Create a div where the graph will take place -->
+<br>
 <div class="container shadow p-3">
-      <div id="view_graph" align="center" ></div>
-      <form class="form-inline" method='post' action='trees.php'>
-        <label for="tree">Please select one of the Behaviour by clicking on the word:</label>
-        <input class="col-lg-12 col-md-12 col-sm-12" type='text' id="tree" style="background-color:#f2f2f2;" required name = "tree"/>
-        <label>Please click the button below to see its Factor and Weather Correlations</label>
-        <input class="col-lg-12 col-md-12 col-sm-12" type='submit' value='Click Me' name='json'/><br>
-        <a class="btn btn-secondary col-lg-12 col-md-12 col-sm-12" href="trackerMain.php">BACK</a>
-      </form>     
+  <div class="row">
+  <div class="col-lg-12">
+      <form class="form-inline d-flex justify-content-center" method='post' action='trees.php'>
+      
+        <label for="tree">Select one behaviour to see triggers: &nbsp;</label>
+        <input class="form-control m-2" type='text' id="tree" style="background-color:#f2f2f2; border:2px solid green;" required name = "tree"/>
+        <input class="col-lg-2 col-md-3 col-sm-4 m-2" type='submit' value='Click Me' name='json'/><br>
+
+      </form> 
+  </div>     
+      <div id="view_graph" style="overflow-x:scroll;" align="center" ></div>
+      
+      </div>     
     </div>
 <script>
 
 d3.json("<?php echo 'b'.$uid ?>", function(data) {
     console.log(data);
+window.addEventListener('resize', function() {
+  console.log("The window was resized!");
+});
 
 // set the dimensions and margins of the graph
+//var color = d3.scale.ordinal().range(["#66c2a5","#fc8d62","#8da0cb","#e78ac3","#a6d854"]);
+
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 450 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
+    width = 1000 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#view_graph").append("svg")
@@ -116,8 +129,8 @@ var svg = d3.select("#view_graph").append("svg")
 var layout = d3.layout.cloud()
   .size([width, height])
   .words(data.map(function(d) { return {text: d.label, size:(d.value)*6}; }))
-  .padding(5)        //space between words
-  .rotate(function() { return ~~(Math.random() * 2) * 90; })
+  .padding(15)        //space between words
+  .rotate(function() { return 0;})// ~~(Math.random() * 2) * 90; })
   .fontSize(function(d) { return d.size; })      // font sizeof words
   .on("end", draw);
 layout.start();
@@ -132,10 +145,20 @@ function draw(words) {
       .selectAll("text")
         .data(words)
       .enter().append("text")
-        .style("font-size", function(d) { return d.size; })
+        .style("font-size", function(d) { 
+          if(d.size<=20)
+          {
+            return d.size*1.5;
+          }
+          else 
+          {
+            return d.size;
+          }
+           })
         .style("fill", "#69b3a2")
         .attr("text-anchor", "middle")
-        .style("font-family", "Impact")
+        .style("font-family", "sans-serif")
+        .style("font-weight","lightest")
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
@@ -143,9 +166,34 @@ function draw(words) {
         .on("click", function (d,i){
             var test = d.text;
             document.getElementById("tree").value = test;
-          });
+          })
+        .on("mouseover",function()
+        {
+          tooltip.style("display",null);
+        })
         
+        .on("mouseout",function()
+        {
+          tooltip.style("display","none");
+        })
 
+        .on("mousemove",function(d)
+        {
+          var xPos = d3.mouse(this)[0] + 300;
+          var yPos = d3.mouse(this)[1] + 160;
+          tooltip.attr("transform","translate("+xPos+","+yPos+")");
+          tooltip.select("text").text(d.text +" : "+ (d.size/6));
+        });
+
+        var tooltip = svg.append("g")
+        .attr("class",tooltip)
+        .style("display","none");
+
+        tooltip.append("text")
+        .attr("x", 15)
+        .attr("dy","1.2em")
+        .style("font-size","1.25em")
+        .attr("font-weight","bold");
 }
     
 });

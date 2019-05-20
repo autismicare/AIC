@@ -2,20 +2,20 @@
         include('checkuser.php');
         $uid = $row["User_ID"];     
     //the SQL query to be executed
-    $query1 = "SELECT m.M_name as Mood_type, count(m.M_name) as Mood_count
+    $query1 = "SELECT m.M_name as Mood_type, count(m.M_name) as Mood_count 
 	from Mood m, Mood_set ms,
 	(select * from MBTracker where User_ID = '$uid' and Tracking_date > DATE_ADD((select max(Tracking_date) from MBTracker where User_ID = '$uid'), INTERVAL -7 DAY)) as tr
 	where tr.Tracker_ID = ms.Tracker_ID and ms.Mood_ID = m.Mood_ID
   group by m.M_name";
     
-    $query4 = "SELECT m.CM_name as Mood_type, count(m.CM_name) as Mood_count
+    $query4 = "SELECT m.CM_name as Mood_type, count(m.CM_name) as Mood_count 
     from (select * from CMood where User_ID = '$uid') m, CMood_set ms,
     (select * from MBTracker where User_ID = '$uid' and Tracking_date > DATE_ADD((select max(Tracking_date) from MBTracker where User_ID = '$uid'), INTERVAL -7 DAY)) as tr
     where tr.Tracker_ID = ms.Tracker_ID and ms.CMood_ID = m.CMood_ID
     group by m.CM_name";
     
   
-  $query2 = "SELECT f.F_name as Factor_name, count(f.F_name) as Factor_count
+  $query2 = "SELECT f.F_name as Factor_name, count(f.F_name) as Factor_count 
 	from Factor f, Factor_set fs,
 	(select * from MBTracker where User_ID = '$uid' and Tracking_date > DATE_ADD((select max(Tracking_date) from MBTracker where User_ID = '$uid'), INTERVAL -7 DAY)) as tr
 	where tr.Tracker_ID = fs.Tracker_ID and fs.Factor_ID = f.Factor_ID 
@@ -28,14 +28,14 @@
   group by Cf_name";
   
 
-  $query3 = "SELECT b.B_name as Behaviour_name, count(b.B_name) as Behaviour_count
+  $query3 = "SELECT b.B_name as Behaviour_name, count(b.B_name) as Behaviour_count 
 	from Behaviour b, Behaviour_set bs,
 	(select * from MBTracker where User_ID = '$uid' and Tracking_date > DATE_ADD((select max(Tracking_date) from MBTracker where User_ID = '$uid'), INTERVAL -7 DAY)) as tr
 	where tr.Tracker_ID = bs.Tracker_ID and 
 	bs.Behaviour_ID = b.Behaviour_ID
   group by b.B_name";
   
-  $query6 = "SELECT b.CB_name as Behaviour_name, count(b.CB_name) as Behaviour_count
+  $query6 = "SELECT b.CB_name as Behaviour_name, count(b.CB_name) as Behaviour_count 
 	from (select * from CBehaviour where User_ID = '$uid') b, CBehaviour_set bs,
 	(select * from MBTracker where User_ID = '$uid' and Tracking_date > DATE_ADD((select max(Tracking_date) from MBTracker where User_ID = '$uid'), INTERVAL -7 DAY)) as tr
 	where tr.Tracker_ID = bs.Tracker_ID and 
