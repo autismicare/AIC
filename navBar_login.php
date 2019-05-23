@@ -11,7 +11,7 @@ echo
           <a class="nav-link" href="childprofile.php"><strong>Welcome, '. $username .' </strong></a>
         </li> 
         <li class="nav-item ml-2">
-          <a class="nav-link" href="facts.php"><i class="fa fa-bullhorn"></i> Facts </a>
+          <a class="nav-link" href="facts.php"><i class="fa fa-bullhorn"></i> Autism Facts </a>
         </li>
         <li class="nav-item ml-2">
           <a class="nav-link" href="events.php"><i class="fa fa-calendar"></i> Upcoming Events </a>
@@ -23,11 +23,11 @@ echo
           <a class="nav-link" href="show_chart.php"><i class="fas fa-chart-line"></i> Charts  </a>
         </li>
         <li class="nav-item ml-2">
-          <a class="nav-link" href="listRecord.php"><i class="fas fa-list-ul"></i> List of Records  </a>
-        </li>
-        <li class="nav-item ml-2">
           <a class="nav-link" href="statistic.php"><i class="fab fa-hubspot"></i> Correlation  </a>
         </li> 
+        <li class="nav-item ml-2">
+          <a class="nav-link" href="listRecord.php"><i class="fas fa-list-ul"></i> List of Records  </a>
+        </li>
         <li class="nav-item ml-2">
           <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </li> 

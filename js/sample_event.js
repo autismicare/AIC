@@ -27,7 +27,7 @@ $(document).ready(function() {
 	  		else
 	  		{ eventImage = "assets/img/event_template.jpg"; }      
 	      s += "<div class='container shadow-sm col-lg-3 col-md-4 col-9 m-2'>";
-	      s += "<img src='" + eventImage + "' style='width:100%'><br>";    	  	
+	      s += "<a style='color:#FF6B21;' href='" + event.url + "'><img src='" + eventImage + "' style='width:100%'></a><br>";    	  	
 	      s += "<b><img src='./assets/img/e_sm.png' class='mt-1'><a style='color:#FF6B21;' href='" + event.url + "'> " + event.name.text + "</a>";
 	      s += "<br><img src='./assets/img/gpin_sm.png'><a style='color:#53B07F;' href='https://maps.google.com/maps?width=100%&amp;height=200&amp;hl=en&amp;q=" + event.venue.address.latitude + "," + event.venue.address.longitude + "'>" + event.venue.address.address_1 + "</a></b><br>";
 	      s += "<a>Date/Time: " + eventTime + "</a><br>";     	     

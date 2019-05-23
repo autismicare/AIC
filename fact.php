@@ -29,7 +29,7 @@
 <div class="container mt-5 shadow p-3">
   <h3 class="text-center"> Autism Facts </h3> 
     <?php
-    $data_per_page = 3;
+    $data_per_page = 5;
     $select = "SELECT F_desc, F_author, F_url FROM Fact";  
     $select_run = mysqli_query($conn, $select);
     $records = mysqli_num_rows($select_run);
@@ -56,7 +56,6 @@
 
 </div>
 <!-- End contents -->
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Go to top</button>
 
 </body>
 </html>

@@ -27,7 +27,7 @@ if (isset($_REQUEST['reg_child'])) {
   $query = "INSERT INTO Child (C_name, C_age, C_sex,User_ID) 
                 VALUES('$name', '$age', '$gender','$id')";
   mysqli_query($db, $query);
-  header('location:trackerMain.php');  
+  header('location:indexs.php');  
   
 }
 ?>

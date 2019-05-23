@@ -26,23 +26,23 @@
   <h3 class="text-center">Register</h3><br>
     <form method="post" action="register.php">
     <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <label>Email :</label>
           <input type="email" name="email" value="<?php echo $email; ?>" placeholder="Email Address" required>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <label>Account Name :</label>
           <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username" required>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <label>Password :</label>
           <input type="password" name="password_1" placeholder="Password" required>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <label>Confirm password :</label>
           <input type="password" name="password_2" placeholder="Confirm Password" required>
         </div>        
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <a>Security Question 1 : </a>
           <?php				
             $query = "select  * from Question where Question_ID < 6";
@@ -55,7 +55,7 @@
           ?>
           <input type="text" name="ans1" placeholder="Answer for question 1" required>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12">
           <a>Security Question 2 : </a>
           <?php				
             $query = "select  * from Question where Question_ID > 6";

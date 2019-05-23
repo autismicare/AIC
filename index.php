@@ -38,7 +38,7 @@
       <a class="carousel-item active" href="fact.php">
         <img src="assets/img/d1.jpg" width="1100" height="500">
           <div class="carousel-caption" style="bottom:15%;text-shadow:#FF1493 1px 0 10px;">
-              <h3 style="font-size:3vw;">Autism: Strengthening today<br> for a better tomorrow</h3>
+              <h3 style="font-size:3vw;">Challenging behaviour of children with autism.</h3>
           </div>
       </a>
       <a class="carousel-item" href="#event-section">
@@ -49,8 +49,8 @@
       </a>
       <a class="carousel-item" href="trackerMain.php">
         <img src="assets/img/d3.jpg" width="1100" height="500">
-          <div class="carousel-caption text-right" style="top:10%;text-shadow:#00BFFF 1px 0 10px;">
-            <h2 style="font-size:3vw;">Diary: <br>Improving <br>lives daily</h2>
+          <div class="carousel-caption" style="bottom:15%;text-shadow:#00BFFF 1px 0 10px;">
+              <h3 style="font-size:3vw;">Diary: You can't manage what you don't measure</h3>  
           </div>
       </a>
     </div>
@@ -69,8 +69,8 @@
 <!-- Start Contents row 1 -->
 <ul class="container mt-2 shadow p-3">
 <h3>Register with us today to access <a href="login.php">Diary</a></h3>
-  <p class="text-left">Diary offers parents the ability to track their child's mood and behaviour on a daily basis. Recognize the external factors that affect them while learning their mood patterns. A wide range of moods are provided as colorful and expressive emoticons and pictures, which can be  be rated as frequently as desired so that changes in mood state can be recorded as often as needed. 
-The charts give a global assessment of their mood based on daily, weekly or even monthly inputs.</p>
+  <p class="text-left">Track your child's mood and behaviour, without typing long lines of text. 
+  Look through the list of emojis and icons, and pick the ones that apply</p>
   <ul style="list-style-type: none;">
     <li>
       <a class="btn btn-primary" href="login.php" style="background:#02789e;width:45%;height:20%"><i class="fa fa-plus"></i> Add record</a>
@@ -94,7 +94,7 @@ The charts give a global assessment of their mood based on daily, weekly or even
                   // output data of each row
                   while($row = $result->fetch_assoc()) 
                   {
-                      echo $row["F_desc"]. "<footer class='blockquote-footer'>" . $row["F_author"]. "</footer>" . "<a href='". $row["F_url"]. "'>Read on</a><br><br>";
+                      echo $row["F_desc"]. "<footer class='blockquote-footer'>" . $row["F_author"]. "</footer>" . "<br>";
                   }
               } else 
               {

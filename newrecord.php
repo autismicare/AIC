@@ -17,12 +17,54 @@
   <script type="text/javascript">
     $(function(){
 
+    
+
     var requiredCheckboxes = $(':checkbox[name="mood[]"],:checkbox[name="cmood[]"] ');
+    $("#sub").click(function(){
+      var count_checked = $("[name='mood[]']:checked,[name='cmood[]']:checked").length; // count the checked rows
+      var count_checkedb = $("[name='behaviour[]']:checked,[name='cbehaviour[]']:checked").length; // count the checked rows
+      var count_checkedf = $("[name='factor[]']:checked,[name='cfactor[]']:checked").length; // count the checked rows
+      var count_checkedr = $("[name='rate']:checked").length; // count the checked rows
+      var count_checkedw = $("[name='weather']:checked").length; // count the checked rows
+      
+        if(count_checked == 0) 
+        {
+            alert("Please select at least one Mood.");
+            return false;
+        }
+        
+        if(count_checkedb == 0) 
+        {
+            alert("Please select at least one Behaviour.");
+            return false;
+        }
+        
+        if(count_checkedf == 0) 
+        {
+            alert("Please select at least one Factor.");
+            return false;
+        }
+
+        
+        if(count_checkedr == 0) 
+        {
+            alert("Please select the Rate.");
+            return false;
+        }
+
+        
+        if(count_checkedw == 0) 
+        {
+            alert("Please select the Weather.");
+            return false;
+        }
+    });
 
     requiredCheckboxes.change(function(){
 
         if(requiredCheckboxes.is(':checked')) {
             requiredCheckboxes.removeAttr('required');
+
         }
         else
         {
@@ -57,10 +99,12 @@
             requiredCheckboxesb.attr('required', 'required');
         }
     });
-    
-    });
 
-
+});
+$("input[name='mood[]']").is(function () {
+    alert("a");
+    return this.checked;
+});
   </script>
 <?php include('as.php') ?>
 
@@ -167,7 +211,7 @@ if (isset($_REQUEST['chart'])) {
   <button onclick="bottomFunction()" id="bottomBtn" title="Go to bottom" style="background-color:red;"><i class="fas fa-arrow-down"></i></button>
 
 
-  <form method="post" onsubmit="return validate()" style="text-align: center;">      
+  <form method="post"  style="text-align: center;">      
 
   <div class="row mt-2">
     <div class="col-md-11 col-lg-5 container shadow p-3 mt-2 mb-4">
@@ -306,7 +350,7 @@ if (isset($_REQUEST['chart'])) {
     </div>
 
         <br>
-        <input class="btn btn-primary" type="submit" value="SAVE" name ="chart">
+        <input class="btn btn-primary" type="submit" id="sub" value="SAVE"  name ="chart">
 
     </form>
     <!-- End Form -->
